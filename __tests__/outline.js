@@ -38,16 +38,6 @@
 
 
 
-//In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
-  // * `github`&mdash;GitHub username
-  // * `getGithub()`
-  // * `getRole()`&mdash;overridden to return `'Engineer'`
-
-//In addition to `Employee`'s properties and methods, `Intern` will also have the following:
-  // * `school`
-  // * `getSchool()`
-  // * `getRole()`&mdash;overridden to return `'Intern'`
-
 //Although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
 
 
