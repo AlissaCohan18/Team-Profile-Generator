@@ -3,14 +3,15 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generateHTML = require("./src/templateHTML");
+const executeHTML = require("./src/generateHTML");
+
 
 //declare variables
 const internArray = [];
 const engineerArray = [];
-const teamCompleted = "You have finished building your team!"
+let teamManager;
 
-//TODO: const generateHTML = require("./utils/templateHTML");
-//TODO: const createHTML = require("./utils/generateHTML");
 
 //Questions to prompt for manager information
 const promptMgrInfo = () => {
@@ -55,13 +56,13 @@ const promptMgrInfo = () => {
       ])
       //deconstruct and pass in responses
       .then(({ name, id, email, phone, addEmployee }) => {
-        const teamManager = new Manager(name, id, email, phone);
+        teamManager = new Manager(name, id, email, phone);
         console.log(teamManager);
         //if adding team members, execute function to determine what type of employee to add
         if (addEmployee) {
           promptEmployeeType();
         } else {
-            console.log(teamCompleted)
+            finalSequence();
         }
       })
   );
@@ -131,7 +132,7 @@ const promptInternInfo = () => {
       if (addEmployee) {
         promptEmployeeType();
       } else {
-        console.log(teamCompleted)
+        finalSequence();
     }
     });
 };
@@ -175,9 +176,20 @@ const promptEngrInfo = () => {
       if (addEmployee) {
         promptEmployeeType();
       } else {
-        console.log(teamCompleted)
+        finalSequence();
     }
     });
 };
 
-promptMgrInfo();
+promptMgrInfo()
+
+const finalSequence = () => {
+    console.log("You have finished building your team!")
+    console.log(teamManager)
+    console.log(engineerArray)
+    console.log(internArray)
+    
+    //TODO: code to execute use of the template & generate HTML
+    //TODO: code to copy the CSS into the dist folder (or just place a copy in it)
+
+}
