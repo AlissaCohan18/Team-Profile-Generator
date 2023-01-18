@@ -4,6 +4,11 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+//declare variables
+const internArray = [];
+const engineerArray = [];
+const teamCompleted = "You have finished building your team!"
+
 //TODO: const generateHTML = require("./utils/templateHTML");
 //TODO: const createHTML = require("./utils/generateHTML");
 
@@ -55,6 +60,8 @@ const promptMgrInfo = () => {
         //if adding team members, execute function to determine what type of employee to add
         if (addEmployee) {
           promptEmployeeType();
+        } else {
+            console.log(teamCompleted)
         }
       })
   );
@@ -84,6 +91,7 @@ const promptEmployeeType = () => {
   );
 };
 
+//Question prompts for Intern information
 const promptInternInfo = () => {
   return inquirer
     .prompt([
@@ -117,10 +125,14 @@ const promptInternInfo = () => {
     ])
     .then(({ name, id, email, school, addEmployee }) => {
       const teamIntern = new Intern(name, id, email, school);
-      console.log(teamIntern);
+     //add intern object to array of interns
+      internArray.push(teamIntern);
+      console.log(internArray);
       if (addEmployee) {
         promptEmployeeType();
-      }
+      } else {
+        console.log(teamCompleted)
+    }
     });
 };
 
@@ -157,10 +169,14 @@ const promptEngrInfo = () => {
     ])
     .then(({ name, id, email, git, addEmployee }) => {
       const teamEngr = new Engineer(name, id, email, git);
-      console.log(teamEngr);
+      //add engineer object to array of engineers
+      engineerArray.push(teamEngr);
+      console.log(engineerArray);
       if (addEmployee) {
         promptEmployeeType();
-      }
+      } else {
+        console.log(teamCompleted)
+    }
     });
 };
 
