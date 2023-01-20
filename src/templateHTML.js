@@ -40,12 +40,13 @@ function  generateTeam (engineerArray,teamManager,internArray) {
           <div class="card-body">
             <h4 class="card-title">${engr.name} </h4>
             <p class="card-text">ID: ${engr.id}</p>
-            <a class="card-text">Email: ${engr.email}</a><br>
+            <a href="mailto:${engr.email}"class="card-text">Email: ${engr.email}</a><br>
             <a href="https://github.com/${engr.gitUsername}"class="card-text">GitHub Username: ${engr.gitUsername}</a>
           </div>
         </div>
     </section>
-    `)}
+    `)
+  .join('')}
     ${internArray.map((intern) => 
     `<section id="cardMain">
       <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
@@ -53,12 +54,12 @@ function  generateTeam (engineerArray,teamManager,internArray) {
           <div class="card-body">
             <h4 class="card-title">${intern.name} </h4>
             <p class="card-text">ID: ${intern.id}</p>
-            <a class="card-text">Email: ${intern.email}</a><br>
+            <a href="mailto:${intern.email}"class="card-text">Email: ${intern.email}</a><br>
             <p class="card-text">School: ${intern.school}</p>
           </div>
         </div>
     </section>
-    `)}
+    `).join('')}
 </body>
 </html>`
 
