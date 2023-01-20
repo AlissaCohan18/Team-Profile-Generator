@@ -28,8 +28,8 @@ function  generateTeam (engineerArray,teamManager,internArray) {
           <div class="card-body">
             <h4 class="card-title">${teamManager.name} </h4>
             <p class="card-text">ID: ${teamManager.id}</p>
-            <p class="card-text">Email: ${teamManager.email}</p>
-            <p class="card-text">Office Number: ${teamManager.officeNumber}</p>
+            <a href="mailto:${teamManager.email}"class="card-text">Email: ${teamManager.email}</a><br>
+            <a href="tel:${teamManager.officeNumber}" class="card-text">Office Number: ${teamManager.officeNumber}</a>
           </div>
         </div>
     </section>
@@ -40,8 +40,8 @@ function  generateTeam (engineerArray,teamManager,internArray) {
           <div class="card-body">
             <h4 class="card-title">${engr.name} </h4>
             <p class="card-text">ID: ${engr.id}</p>
-            <p class="card-text">Email: ${engr.email}</p>
-            <p class="card-text">GitHub Username: ${engr.gitUsername}</p>
+            <a class="card-text">Email: ${engr.email}</a><br>
+            <a href="https://github.com/${engr.gitUsername}"class="card-text">GitHub Username: ${engr.gitUsername}</a>
           </div>
         </div>
     </section>
@@ -53,7 +53,7 @@ function  generateTeam (engineerArray,teamManager,internArray) {
           <div class="card-body">
             <h4 class="card-title">${intern.name} </h4>
             <p class="card-text">ID: ${intern.id}</p>
-            <p class="card-text">Email: ${intern.email}</p>
+            <a class="card-text">Email: ${intern.email}</a><br>
             <p class="card-text">School: ${intern.school}</p>
           </div>
         </div>
