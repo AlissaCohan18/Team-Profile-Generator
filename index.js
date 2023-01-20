@@ -126,7 +126,6 @@ const promptInternInfo = () => {
       const teamIntern = new Intern(name, id, email, school);
       //add intern object to array of interns
       internArray.push(teamIntern);
-      console.log(internArray);
       if (addEmployee) {
         promptEmployeeType();
       } else {
@@ -170,7 +169,6 @@ const promptEngrInfo = () => {
       const teamEngr = new Engineer(name, id, email, gitUsername);
       //add engineer object to array of engineers
       engineerArray.push(teamEngr);
-      console.log(engineerArray);
       if (addEmployee) {
         promptEmployeeType();
       } else {
