@@ -24,7 +24,7 @@ function  generateTeam (engineerArray,teamManager,internArray) {
     </nav>
         <section id="cardMain">
       <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
-          <div class="card-header">${teamManager.role}</div>
+          <div class="card-header">${teamManager.role} &nbsp &#9832;</div>
           <div class="card-body">
             <h4 class="card-title">${teamManager.name} </h4>
             <p class="card-text">ID: ${teamManager.id}</p>
@@ -33,10 +33,10 @@ function  generateTeam (engineerArray,teamManager,internArray) {
           </div>
         </div>
     </section>
-    ${engineerArray.map((engr) => `
-    <section id="cardMain">
+    ${engineerArray.map((engr) =>
+    `<section id="cardMain">
       <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
-          <div class="card-header">${engr.role}</div>
+          <div class="card-header">${engr.role} &nbsp &#8486;</div>
           <div class="card-body">
             <h4 class="card-title">${engr.name} </h4>
             <p class="card-text">ID: ${engr.id}</p>
@@ -46,10 +46,10 @@ function  generateTeam (engineerArray,teamManager,internArray) {
         </div>
     </section>
     `)}
-    ${internArray.map((intern) => `
-    <section id="cardMain">
+    ${internArray.map((intern) => 
+    `<section id="cardMain">
       <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
-          <div class="card-header">${intern.role}</div>
+          <div class="card-header">${intern.role} &nbsp &#9998; </div>
           <div class="card-body">
             <h4 class="card-title">${intern.name} </h4>
             <p class="card-text">ID: ${intern.id}</p>
