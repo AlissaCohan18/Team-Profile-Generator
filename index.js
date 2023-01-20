@@ -3,15 +3,13 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const generateHTML = require("./src/templateHTML");
-const executeHTML = require("./src/generateHTML");
-
+const generateTeam = require("./src/templateHTML");
+const createHTML = require("./src/generateHTML");
 
 //declare variables
 const internArray = [];
 const engineerArray = [];
-let teamManager;
-
+let teamManager
 
 //Questions to prompt for manager information
 const promptMgrInfo = () => {
@@ -57,12 +55,12 @@ const promptMgrInfo = () => {
       //deconstruct and pass in responses
       .then(({ name, id, email, phone, addEmployee }) => {
         teamManager = new Manager(name, id, email, phone);
-        console.log(teamManager);
+  
         //if adding team members, execute function to determine what type of employee to add
         if (addEmployee) {
           promptEmployeeType();
         } else {
-            finalSequence();
+          finalSequence();
         }
       })
   );
@@ -126,14 +124,14 @@ const promptInternInfo = () => {
     ])
     .then(({ name, id, email, school, addEmployee }) => {
       const teamIntern = new Intern(name, id, email, school);
-     //add intern object to array of interns
+      //add intern object to array of interns
       internArray.push(teamIntern);
       console.log(internArray);
       if (addEmployee) {
         promptEmployeeType();
       } else {
         finalSequence();
-    }
+      }
     });
 };
 
@@ -157,7 +155,7 @@ const promptEngrInfo = () => {
       },
       {
         type: "input",
-        name: "git",
+        name: "gitUsername",
         message: "What is their Git Username?",
       },
       {
@@ -168,8 +166,8 @@ const promptEngrInfo = () => {
         default: false,
       },
     ])
-    .then(({ name, id, email, git, addEmployee }) => {
-      const teamEngr = new Engineer(name, id, email, git);
+    .then(({ name, id, email, gitUsername, addEmployee }) => {
+      const teamEngr = new Engineer(name, id, email, gitUsername);
       //add engineer object to array of engineers
       engineerArray.push(teamEngr);
       console.log(engineerArray);
@@ -177,19 +175,18 @@ const promptEngrInfo = () => {
         promptEmployeeType();
       } else {
         finalSequence();
-    }
+      }
     });
 };
 
-promptMgrInfo()
+
+
+promptMgrInfo();
 
 const finalSequence = () => {
-    console.log("You have finished building your team!")
-    console.log(teamManager)
-    console.log(engineerArray)
-    console.log(internArray)
-    
-    //TODO: code to execute use of the template & generate HTML
-    //TODO: code to copy the CSS into the dist folder (or just place a copy in it)
+  console.log("You have finished building your team!");
 
-}
+  const htlmCode = generateTeam(engineerArray,teamManager,internArray);
+  createHTML(htlmCode);
+  
+};
