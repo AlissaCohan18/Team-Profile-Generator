@@ -13,7 +13,8 @@ Finally, while still in that directory, execute the program by typing "node inde
 
 ## Usage
 Follow the prompts as demonstrated in this video to execute:
-https://youtu.be/51M7R1joBhk
+https://youtu.be/51M7R1joBhk  (make the html)<br>
+https://youtu.be/BCrkUi9oGIg  (demonstrates testing the code)
 
 ## Built With
 * Node (jest, inquirer and fs)
